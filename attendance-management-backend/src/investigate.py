@@ -5,6 +5,7 @@ def rmsd(image1, image2):
     h = diff.histogram()
     rms = (sum(h) / (image1.size[0] * image1.size[1])) ** 0.5
     return rms
+
 template_path = 'template_signature.png'
 student_signature_path = 'student_signature.png'
 
