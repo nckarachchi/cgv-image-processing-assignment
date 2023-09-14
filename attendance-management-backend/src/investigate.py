@@ -19,3 +19,8 @@ student_image = ImageOps.invert(student_image.point(lambda p: p < threshold and 
 
 threshold = 50 
 difference = rmsd(template_image, student_image)
+
+if difference <= threshold:
+    print(f"Student signature matched with RMSD difference: {difference:.2f}")
+else:
+    print(f"Student signature did not match with RMSD difference: {difference:.2f}")
