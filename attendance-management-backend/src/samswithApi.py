@@ -9,13 +9,14 @@ import io
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 app = Flask(__name__)
-
+# api call which is connected with frontend react
 @app.route('/api/upload-image', methods=['POST'])
 def upload_image():
     if 'image' not in request.files:
         return jsonify({'error': 'No image uploaded'}), 400
 
     image_file = request.files['image']
+
 # image open 
     image = Image.open(image_file)
     gray_image = image.convert('L')
