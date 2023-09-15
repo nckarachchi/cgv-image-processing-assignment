@@ -5,6 +5,7 @@ import pytesseract
 import xml.etree.ElementTree as ET
 import pymongo
 
+# pytesseract windows file location of external added
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 image_path = 'C:\\Users\\admmin\\Documents\\cgv\\cgv-coursework-image-proccesing\\attendance-management-backend\\src\\assets\\attendance_sheet2.png'
