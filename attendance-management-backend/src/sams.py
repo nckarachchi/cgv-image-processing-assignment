@@ -33,6 +33,7 @@ for line in lines:
         ET.SubElement(student, "Name").text = name
         ET.SubElement(student, "Status").text = present
 
+#genarate xml
 tree = ET.ElementTree(root)
 tree.write("info.xml")
 
