@@ -29,6 +29,7 @@ function App() {
           <p>Total Entries: {attendanceSummary.total_entries}</p>
           <p>Present Count: {attendanceSummary.present_count}</p>
           <p>Absent Count: {attendanceSummary.absent_count}</p>
+          
           <img
             src={`data:image/png;base64,${attendanceSummary.attendance_chart}`}
             alt="Attendance Chart"
