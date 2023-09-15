@@ -32,5 +32,5 @@ class InfoVis:
         return summary
 
     def close_connection(self):
-        # Close part
+        # Close pars
         self.client.close()
