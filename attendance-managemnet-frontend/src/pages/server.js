@@ -32,6 +32,4 @@ app.post('/api/upload-image', (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+
