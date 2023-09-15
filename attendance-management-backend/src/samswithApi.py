@@ -16,7 +16,7 @@ def upload_image():
         return jsonify({'error': 'No image uploaded'}), 400
 
     image_file = request.files['image']
-
+# image open 
     image = Image.open(image_file)
     gray_image = image.convert('L')
     threshold = 200
