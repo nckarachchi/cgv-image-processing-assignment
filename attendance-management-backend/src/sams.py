@@ -51,7 +51,7 @@ for line in lines:
     if len(parts) >= 3:
         index, name, signature = parts[0], ' '.join(parts[1:-1]), parts[-1]
         present = 'Present' if signature else 'Absent'
-
+# mongo Db document add
         student_doc = {
             "Index": index,
             "Name": name,
