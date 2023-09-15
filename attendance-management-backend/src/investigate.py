@@ -5,15 +5,16 @@ def rmsd(image1, image2):
     h = diff.histogram()
     rms = (sum(h) / (image1.size[0] * image1.size[1])) ** 0.5
     return rms
-
-template_path = 'template_signature.png'
-student_signature_path = 'student_signature.png'
+#image path add
+template_path = 'C:\\Users\\admmin\\Documents\\cgv\\cgv-coursework-image-proccesing\\attendance-management-backend\\src\\template_signature.png'
+student_signature_path = 'C:\\Users\\admmin\\Documents\\cgv\\cgv-coursework-image-proccesing\\attendance-management-backend\\src\\assets\\student_signature.png'
 
 template_image = Image.open(template_path).convert('L')
 student_image = Image.open(student_signature_path).convert('L')
 
 template_image = template_image.resize(student_image.size)
 
+#thresholder add
 threshold = 128
 template_image = ImageOps.invert(template_image.point(lambda p: p < threshold and 255))
 student_image = ImageOps.invert(student_image.point(lambda p: p < threshold and 255))
