@@ -22,7 +22,7 @@ class InfoVis:
             elif status == "Absent":
                 absent_count += 1
         
-        # Create a dictionary to store the attendance summary
+        # Create a dictionary
         summary = {
             "student_index": student_index,
             "present_count": present_count,
