@@ -37,11 +37,12 @@ for line in lines:
 tree = ET.ElementTree(root)
 tree.write("info.xml")
 
+#connection of mongoDB
 print("Attendance information extracted and saved as info.xml")
 client = pymongo.MongoClient("mongodb://localhost:27017/")
 db = client["attendance_database"]
 collection = db["attendance_collection"]
-
+#add current date and time
 current_date = datetime.now()
 
 for line in lines:
