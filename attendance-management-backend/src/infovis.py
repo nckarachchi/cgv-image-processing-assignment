@@ -8,7 +8,7 @@ class InfoVis:
         self.collection = self.db["attendance_collection"]
 
     def get_attendance_summary(self, student_index):
-        # Query MongoDB to retrieve attendance data for the given student
+
         cursor = self.collection.find({"Index": student_index})
         
         # Initialize attendance count variables
