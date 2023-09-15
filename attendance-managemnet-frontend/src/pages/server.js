@@ -1,0 +1,38 @@
+const express = require('express');
+const fileUpload = require('express-fileupload');
+const cors = require('cors');
+
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+// Enable CORS for all routes
+app.use(cors());
+
+// Enable file uploads
+app.use(fileUpload());
+
+// Handle image uploads
+app.post('/api/upload-image', (req, res) => {
+  if (!req.files || !req.files.image) {
+    return res.status(400).json({ error: 'No image uploaded' });
+  }
+
+  const image = req.files.image;
+
+  // Save the uploaded image to a temporary directory (if needed)
+  const imagePath = 'temp/' + image.name;
+  image.mv(imagePath, (err) => {
+    if (err) {
+      return res.status(500).send(err);
+    }
+
+    // TODO: Send the image path to your Python backend for processing
+    // You can use Python subprocess or an HTTP request to connect to the backend here
+
+    res.json({ message: 'Image uploaded successfully', imagePath });
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
