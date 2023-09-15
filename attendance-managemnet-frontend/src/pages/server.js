@@ -25,7 +25,7 @@ app.post('/api/upload-image', (req, res) => {
       return res.status(500).send(err);
     }
 
-    // TODO: Send the image path to your Python backend for processing
+    // TODO: Send your Python backend the image path to process.
     // You can use Python subprocess or an HTTP request to connect to the backend here
 
     res.json({ message: 'Image uploaded successfully', imagePath });
