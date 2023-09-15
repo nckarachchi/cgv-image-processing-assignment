@@ -44,18 +44,19 @@ def upload_image():
     xml_file = io.BytesIO(tree_str)
     xml_file.seek(0)
 
+# connection of mongoDB
     client = pymongo.MongoClient("mongodb://localhost:27017/")
     db = client["attendance_database"]
     collection = db["attendance_collection"]
 
     current_date = datetime.datetime.now()
-
+# check present of the student
     for line in lines:
         parts = line.strip().split()
         if len(parts) >= 3:
             index, name, signature = parts[0], ' '.join(parts[1:-1]), parts[-1]
             present = 'Present' if signature else 'Absent'
-
+# mongo Db document add
             student_doc = {
                 "Index": index,
                 "Name": name,
