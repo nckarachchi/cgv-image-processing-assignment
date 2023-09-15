@@ -42,11 +42,12 @@ print("Attendance information extracted and saved as info.xml")
 client = pymongo.MongoClient("mongodb://localhost:27017/")
 db = client["attendance_database"]
 collection = db["attendance_collection"]
-#add current date and time
+# add current date and time
 current_date = datetime.now()
 
 for line in lines:
     parts = line.strip().split()
+# check present of the student
     if len(parts) >= 3:
         index, name, signature = parts[0], ' '.join(parts[1:-1]), parts[-1]
         present = 'Present' if signature else 'Absent'
