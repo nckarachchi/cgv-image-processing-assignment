@@ -34,7 +34,7 @@ const ImageUploader = () => {
       </div>
       {uploadedImage && (
         <div>
-          <h2>Uploaded Image:</h2>
+          <h2>Uploaded Image(png/jpeg):</h2>
           <img src={uploadedImage} alt="Uploaded" width="300" />
         </div>
       )}
