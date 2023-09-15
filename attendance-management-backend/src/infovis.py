@@ -32,5 +32,5 @@ class InfoVis:
         return summary
 
     def close_connection(self):
-        # Close the MongoDB client connection
+        # Close
         self.client.close()
