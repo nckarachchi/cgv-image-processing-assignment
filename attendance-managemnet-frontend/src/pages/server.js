@@ -10,7 +10,7 @@ app.use(cors());
 // Enable file upload
 app.use(fileUpload());
 
-// Handle image uploads
+// Handle image upload
 app.post('/api/upload-image', (req, res) => {
   if (!req.files || !req.files.image) {
     return res.status(400).json({ error: 'No image uploaded' });
@@ -18,7 +18,7 @@ app.post('/api/upload-image', (req, res) => {
 
   const image = req.files.image;
 
-  // Save the uploaded image to a temporary directory (if needed)
+  // Save the uploaded image to a temporary directory (if necessary)
   const imagePath = 'temp/' + image.name;
   image.mv(imagePath, (err) => {
     if (err) {
