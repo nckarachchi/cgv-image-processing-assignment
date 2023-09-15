@@ -9,6 +9,7 @@ import io
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 app = Flask(__name__)
+
 # api call which is connected with frontend react
 @app.route('/api/upload-image', methods=['POST'])
 def upload_image():
@@ -19,8 +20,10 @@ def upload_image():
 
 # image open 
     image = Image.open(image_file)
+# genarate gray image
     gray_image = image.convert('L')
     threshold = 200
+# genarate binary image
     binary_image = gray_image.point(lambda p: p > threshold and 255)
 
     text = pytesseract.image_to_string(binary_image)

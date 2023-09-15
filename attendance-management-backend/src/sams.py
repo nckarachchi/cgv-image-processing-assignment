@@ -11,8 +11,10 @@ pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tessera
 image_path = 'C:\\Users\\admmin\\Documents\\cgv\\cgv-coursework-image-proccesing\\attendance-management-backend\\src\\assets\\attendance_sheet2.png'
 image = Image.open(image_path)
 
+# genarate gray image
 gray_image = image.convert('L')
 
+# genarate binary image
 threshold = 200
 binary_image = gray_image.point(lambda p: p > threshold and 255)
 
@@ -33,11 +35,11 @@ for line in lines:
         ET.SubElement(student, "Name").text = name
         ET.SubElement(student, "Status").text = present
 
-#genarate xml
+# genarate xml
 tree = ET.ElementTree(root)
 tree.write("info.xml")
 
-#connection of mongoDB
+# connection of mongoDB
 print("Attendance information extracted and saved as info.xml")
 client = pymongo.MongoClient("mongodb://localhost:27017/")
 db = client["attendance_database"]
