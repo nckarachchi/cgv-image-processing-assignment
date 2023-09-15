@@ -8,7 +8,7 @@ const ImageUploader = () => {
   const onDrop = async (acceptedFiles) => {
     const formData = new FormData();
     formData.append('image', acceptedFiles[0]);
-
+//try catch block
     try {
       const response = await axios.post('/api/upload-image', formData, {
         headers: {
@@ -20,7 +20,7 @@ const ImageUploader = () => {
 
       setUploadedImage(URL.createObjectURL(acceptedFiles[0]));
     } catch (error) {
-      console.error('Error uploading image:', error);
+      console.error('There was Error when you are  uploading image:', error);
     }
   };
 
