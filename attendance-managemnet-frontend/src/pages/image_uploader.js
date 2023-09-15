@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useDropzone } from 'react-dropzone';
 
-const ImageUploader = () => {
+const ImageUploaderfuntion = () => {
   const [uploadedImage, setUploadedImage] = useState(null);
 
   const onDrop = async (acceptedFiles) => {
@@ -42,4 +42,4 @@ const ImageUploader = () => {
   );
 };
 
-export default ImageUploader;
+export default ImageUploaderfuntion;
